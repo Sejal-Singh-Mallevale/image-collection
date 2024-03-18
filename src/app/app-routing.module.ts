@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UnGuardService } from './main/core/guards/unguard.guard';
 import { GuardService } from './main/core/guards/guard.guard';
-import { MainComponent } from './main/main/main.component';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   { 
