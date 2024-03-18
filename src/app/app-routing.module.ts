@@ -1,7 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UnGuardService } from './main/core/guards/unguard.guard';
+import { GuardService } from './main/core/guards/guard.guard';
+import { MainComponent } from './main/main/main.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { 
+    path: '',
+    redirectTo: '/auth/sign-in',
+    pathMatch: 'full'
+  }, 
+  {
+    path: 'auth',
+    canActivate: [UnGuardService],
+    loadChildren: () => import('./main/pages/authentication/authentication.module').then(module => module.AuthenticationModule)
+  },
+  {
+    path: 'features',
+    canActivate: [GuardService],
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./main/pages/features/features.module').then(module => module.FeaturesModule)
+      }
+    ]
+  },
+  {
+    path: 'main',
+    component: MainComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

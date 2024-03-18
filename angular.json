@@ -30,9 +30,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -69,6 +72,9 @@
             },
             "development": {
               "browserTarget": "angular-cognito:build:development"
+            },
+            "dev": {
+              "browserTarget": "angular-cognito:build:dev"
             }
           },
           "defaultConfiguration": "development"
