@@ -1,0 +1,29 @@
+<div class="container-fluid h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100 p-5">
+        <div>
+            <div class="card">
+                <div class="card card-body">
+                    <div class="text-center">
+                        <p>Sign In</p>
+                    </div>
+                    <form [formGroup]="signInForm" autocomplete="on" (ngSubmit)="onSubmit()">
+                        <div class="form-group m-2">
+                            <label class="mb-2" for="email">Email</label>
+                            <input class="form-control"  type="email" id="email" placeholder="Enter Email"  formControlName="email"/>
+                        </div>
+                        <div class="form-group m-2">
+                            <label class="mb-2" for="password">Password</label>
+                            <input class="form-control"  type="password" id="password" placeholder="Enter Password"  formControlName="password"/>
+                        </div>
+                        <div class="m-2" class="text-center">
+                            <button class="btn btn-primary m-2" type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <div class="m-2" class="text-center">
+                        <a routerLink="/auth/sign-up"><u>Click Here to Sign Up</u></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
