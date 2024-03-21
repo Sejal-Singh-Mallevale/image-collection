@@ -11,8 +11,4 @@ export class UploadImageComponent implements OnInit{
   constructor(private cognitoService: CognitoService) {}
   ngOnInit(): void {
   }
-  SignOut(){
-    this.cognitoService?.SignOut();
-  }
-
 }

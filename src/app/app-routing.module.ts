@@ -12,15 +12,16 @@ const routes: Routes = [
   }, 
   {
     path: 'auth',
-    canActivate: [UnGuardService],
+    // canActivate: [UnGuardService],
     loadChildren: () => import('./main/pages/authentication/authentication.module').then(module => module.AuthenticationModule)
   },
   {
-    path: 'features',
-    canActivate: [GuardService],
+    path: 'main',
+    // canActivate: [GuardService],
+    component: MainComponent,
     children: [
       {
-        path: '',
+        path: 'features',
         loadChildren: () => import('./main/pages/features/features.module').then(module => module.FeaturesModule)
       }
     ]

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <ng-container *ngFor="let navItem of navbarData; let i = index">
+                <li role="button" class="m-2">
+                    <a role="button" (click)="navigateToNavComponent(navItem)"
+                        aria-expanded="false">
+                        <span class="sideNavLabel">{{ navItem?.label }} </span>
+                    </a>
+                </li>
+            </ng-container>
+            <li role="button" class="m-2 ml-auto">
+              <a role="button" (click)="navigateToNavComponent({label: 'SignOut', route: ''})"
+                    aria-expanded="false">
+                    <span class="sideNavLabel">Sign Out</span>
+                </a>
+            </li>
+        </div>
+      </div>
+    </div>
+  </nav>
