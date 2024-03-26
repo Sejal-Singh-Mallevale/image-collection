@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { MainComponent } from './main/main.component';
+import { FeaturesModule } from './main/pages/features/features.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MainComponent } from './main/main.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AmplifyAuthenticatorModule
+    AmplifyAuthenticatorModule,
+    FeaturesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
