@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CognitoService } from 'src/app/main/core/services/cognito.service.service';
+import { passwordValidator } from '../../features/shared/form-validators';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,8 +16,8 @@ export class SignInComponent implements OnInit{
 
   ngOnInit(): void {
     this.signInForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, passwordValidator()]]
     });
   }
 

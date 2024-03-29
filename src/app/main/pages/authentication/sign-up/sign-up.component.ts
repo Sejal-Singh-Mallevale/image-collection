@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CognitoService } from 'src/app/main/core/services/cognito.service.service';
+import { confirmPasswordValidator, passwordValidator } from '../../features/shared/form-validators';
 
 @Component({
   selector: 'app-sign-up',
@@ -21,8 +22,8 @@ export class SignUpComponent implements OnInit{
       phoneNumber: ['', Validators.required],
       role: ['', Validators.required],
       gender: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],  
+      password: ['', [Validators.required, passwordValidator()]],
+      confirmPassword: ['', [Validators.required, confirmPasswordValidator('password')]],  
     });
   }
   onSubmit(){

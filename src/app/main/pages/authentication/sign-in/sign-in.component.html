@@ -6,17 +6,20 @@
                     <div class="text-center">
                         <p>Sign In</p>
                     </div>
-                    <form [formGroup]="signInForm" autocomplete="on" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="signInForm" autocomplete="off" (ngSubmit)="onSubmit()">
                         <div class="form-group m-2">
                             <label class="mb-2" for="email">Email</label>
                             <input class="form-control"  type="email" id="email" placeholder="Enter Email"  formControlName="email"/>
                         </div>
+                        <span *ngIf="signInForm.controls['email'].invalid && signInForm.controls['email'].touched" class="error-msg ms-3">Please enter valid email</span>
+
                         <div class="form-group m-2">
                             <label class="mb-2" for="password">Password</label>
                             <input class="form-control"  type="password" id="password" placeholder="Enter Password"  formControlName="password"/>
                         </div>
+                        <span *ngIf="signInForm.controls['password'].invalid && signInForm.controls['password'].touched" class="error-msg ms-3">Enter valid password</span>
                         <div class="m-2" class="text-center">
-                            <button class="btn btn-primary m-2" type="submit">Submit</button>
+                            <button class="btn btn-primary m-2" type="submit" [disabled]="!signInForm.valid">Submit</button>
                         </div>
                     </form>
                     <div class="m-2" class="text-center">
